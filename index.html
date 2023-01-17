@@ -13,17 +13,18 @@
     <link rel="stylesheet" href="./assets/style.css">
 
 </head>
+
 <body>
-    <main> 
-<header>
-    <h1>
-        Weather Dashboard
-    </h1>
+    <main>
+        <header>
+            <h1>
+                Weather Dashboard
+            </h1>
 
-</header>
+        </header>
 
 
-   
+
         <h3> Search for a city: </h3>
         <form id="search-city">
             <input type="text" class="form-input w-25" id="city-input" name="city-input"
@@ -32,22 +33,27 @@
             <hr />
         </form>
 
-    
-        <div> 
-        <h3> Current day Results</h3>
-    </div>
-    
-       
-       <div>  <ul id="fiveDay-Forecast">
-           <h3> 5-Day Forecast: </h3>
 
-        </ul>
-    </div>
+        <div>
+            <ul id="currentDayForecast">
+                <h3> Current day Results</h3>
+            </ul>
+        </div>
 
-</main>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="./assets/script.js"></script>
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+        <div>
+            <h3> 5-Day Forecast: </h3>
+            <ul id="fiveDay-ForecastFirst" class="d-flex justify-content-evenly flex-wrap">
+               
+
+            </ul>
+        </div>
+
+
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="./assets/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 </body>
 
 </html>
