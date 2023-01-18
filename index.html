@@ -15,46 +15,56 @@
 </head>
 
 <body>
-    <main>
-        <header>
-            <h1>
-                Weather Dashboard
-            </h1>
 
-        </header>
+    <header>
+        <h1>
+            Weather Dashboard
+        </h1>
+
+    </header>
+    <main class="container border mw-100 text-left ">
+        <div class="row border">
+            <div class="col-2 border">
+                <div>
+                    <form class="border w-100 text-center">
+                        <input type="text" id="city-input" name="city-input" value=""
+                            placeholder="Please input City"><br>
+                        <br>
+                        <input class="btn btn-info" type="submit" value="submit">
+                        <div id="stored-City"></div>
+                    </form>
+
+                </div>
+
+            </div>
+
+            <div class="col-10 border">
+
+                <div class="text-left border w-100" id="resultsCard">
+                    <div>
+                        <ul id="currentDayForecast">
+                            <h3> Current Weather Results</h3>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="text-center border w-100">
+                    <h3> 5-Day Forecast: </h3>
+                    <ul id="fiveDay-ForecastFirst" class="col d-flex justify-content-evenly flex-wrap">
 
 
+                    </ul>
 
-        <h3> Search for a city: </h3>
-        <form id="search-city">
-            <input type="text" class="form-input w-25" id="city-input" name="city-input"
-                placeholder="Enter city name" /><br>
-            <button class="btn btn-info">Search</button>
-            <hr />
-            <button id="stored-City"></button>
-        </form>
-
-
-        <div>
-            <ul id="currentDayForecast">
-                <h3> Current day Results</h3>
-            </ul>
+                </div>
+            </div>
         </div>
 
-
-        <div>
-            <h3> 5-Day Forecast: </h3>
-            <ul id="fiveDay-ForecastFirst" class="d-flex justify-content-evenly flex-wrap">
-               
-
-            </ul>
-        </div>
 
 
     </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="./assets/script.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> -->
 </body>
 
 </html>

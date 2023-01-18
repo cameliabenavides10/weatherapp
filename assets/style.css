@@ -4,3 +4,23 @@ header {
     color:white;
     text-align: center;
 }
+
+/* #searchBarContainer{
+/* max-width: 875px; */
+/* text-align: left;
+
+} */
+
+
+
+.container{
+    margin: 1px!important;
+}
+
+#resultsCard {
+    align-items: center!important;
+}
+
+li {
+    list-style: none!important;
+}
