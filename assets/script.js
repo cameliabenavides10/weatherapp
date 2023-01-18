@@ -5,7 +5,7 @@ var weatherFormEl = $('#search-city');
 
 
 for (var i = 0; i < localStorage.length; i++) {
-  $('body').append(localStorage.getItem(localStorage.key(i)));
+  $('#stored-City').append(localStorage.getItem(localStorage.key(i)));
 
     }
 
