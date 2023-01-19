@@ -1,7 +1,6 @@
 var fiveDayForecastFirstEl = $('#fiveDay-ForecastFirst');
 var fiveDayForecastSecondEl = $('#fiveDay-ForecastSecond');
 var currentDayWeatherEl = $('#currentDayForecast');
-var weatherFormEl = $('#search-city');
 var pastSearchedCityEl = $('#stored-City');
 
 
@@ -9,9 +8,14 @@ var pastSearchedCityEl = $('#stored-City');
 
 function handleFormSubmit(event) {
 
+  if ($('input[name="city-input"]').val() ===""){
+    alert("please enter a valid city.");
+}
+  else{
   event.preventDefault();
   var citySearch = $('input[name="city-input"]').val();
   console.log(citySearch);
+  
 
   localStorage.setItem(citySearch, citySearch);
 
@@ -78,7 +82,7 @@ function handleFormSubmit(event) {
       }
 
     });
-
+  }
 };
 
 
@@ -90,9 +94,8 @@ for (var i = 0; i < localStorage.length; i++) {
   localStorageButton.attr("value", listOfCities);
   localStorageButton.text(localStorage.getItem(localStorage.key(i)));
   $('#stored-City').append(localStorageButton);
+  console.log(document.getElementById("#stored-City"));
 }
-
-
 
 
 addEventListener('submit', handleFormSubmit);
