@@ -1,5 +1,6 @@
 header {
-    background-color: blue;
+    background-color: #23395d;
+
     font-weight: bold;
     color:white;
     text-align: center;
@@ -11,7 +12,22 @@ header {
 
 } */
 
+.btn{
+    margin-bottom: .8rem;
+ 
+}
 
+
+#fiveDay-ForecastFirst{
+color: white;
+
+}
+
+
+.backGroundBlue{
+background-color: #23395d;
+padding: 3%!important;
+}
 
 .container{
     margin: 1px!important;

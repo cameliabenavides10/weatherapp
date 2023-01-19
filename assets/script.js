@@ -2,22 +2,13 @@ var fiveDayForecastFirstEl = $('#fiveDay-ForecastFirst');
 var fiveDayForecastSecondEl = $('#fiveDay-ForecastSecond');
 var currentDayWeatherEl = $('#currentDayForecast');
 var weatherFormEl = $('#search-city');
+var pastSearchedCityEl = $('#stored-City');
 
 
-for (var i = 0; i < localStorage.length; i++) {
-  // $('#stored-City').append(localStorage.getItem(localStorage.key(i)));
-  // do a for loop here in order to get multiple buttons instead of just one
-  var localStorageButton = $("<button>")
-  localStorageButton.attr("class", "btn")
-  localStorageButton.attr("type", "button")
-  localStorageButton.attr("value", localStorage.getItem(localStorage.key(i)))
-  localStorageButton.text(localStorage.getItem(localStorage.key(i)))
-  console.log("the button" + localStorageButton);
-  $('#stored-City').append(localStorageButton)
-}
 
 
 function handleFormSubmit(event) {
+
   event.preventDefault();
   var citySearch = $('input[name="city-input"]').val();
   console.log(citySearch);
@@ -31,49 +22,30 @@ function handleFormSubmit(event) {
       return response.json();
     })
     .then(function (data) {
-      console.log('Current day weather \n----------');
-      console.log(data);
-
 
       var currentDayTemp = data.main.temp;
       var currentDayCity = data.name;
       var currentDayHumidity = data.main.humidity;
       var currentDayWind = data.wind.speed;
-      // var iconDescription = data.weather[0].description;
-      // var iconId = data.weather[0].id;
-      // var iconUrl = ("https://openweathermap.org/img/wn/" + data.weather[0].icon + ".png");
-
-
       var weatherImgEl = document.createElement('img');
       weatherImgEl.setAttribute("src", "https://openweathermap.org/img/wn/" + data.weather[0].icon + ".png");
-      // weatherImgEl.append(iconUrl);
+
       currentDayWeatherEl.append(weatherImgEl);
-      currentDayWeatherEl.append('<li>' + "Location: " + currentDayCity + '</li>');
-      currentDayWeatherEl.append('<li>' + "Current temp: " + currentDayTemp + "F" + '</li>');
-      currentDayWeatherEl.append('<li>' + "Current humidity: " + currentDayHumidity + '</li>');
-      currentDayWeatherEl.append('<li>' + "Wind Speeds: " + currentDayWind + '</li>');
-      // console.log("this is the icon description : " + iconDescription)
+      currentDayWeatherEl.append('<li>' + "<b>" + "Location: " + currentDayCity + '</li>');
+      currentDayWeatherEl.append('<li>' + "<b>" + "Current temp: " + currentDayTemp + "°F" + '</li>');
+      currentDayWeatherEl.append('<li>' + "<b>" + "Current humidity: " + currentDayHumidity + "%" + '</li>');
+      currentDayWeatherEl.append('<li>' + "<b>" + "Wind Speeds: " + currentDayWind + '</li>');
       console.log("this is current day temp: " + currentDayTemp);
-      // console.log("this is icon: " + iconUrl);
-
-
-      // create img element
-      // append iconUrl to img element
-      // append the img element to cards
-
 
     });
 
   var fetchURLWeek = "https://api.openweathermap.org/data/2.5/forecast?q=" + citySearch + "&units=imperial&appid=5225e5b4c0f8a976d70f50d5260b61e9"
-
-
   fetch(fetchURLWeek)
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
-      console.log('5-day forcast \n----------');
-      console.log(data);
+     
 
       for (var i = 0; i < data.list.length; i++) {
 
@@ -81,44 +53,46 @@ function handleFormSubmit(event) {
         var currentTemp = data.list[i].main.temp;
         var currentHumidity = data.list[i].main.humidity;
         var currentWindSpeed = data.list[i].wind.speed;
+        var currentWeatherIcon = data.list[i].weather[0].icon;
+        var currentWeatherDate = data.list[i].dt_txt;
         if (currentTime.endsWith("15:00:00")) {
-          console.log(currentTime)
-          console.log("Temp: " + currentTemp)
-          console.log("Humidity: " + currentHumidity)
-          console.log("Wind Speed: " + currentWindSpeed)
-          console.log(data.list[i])
+          var forecastImgEl = document.createElement("img");
           var forecastCard = document.createElement('div');
-          var tempEl = document.createElement('h3');
-          var humEl = document.createElement('p');
-          var windEl = document.createElement('p');
+          var dateEl = document.createElement("h4");
+          var tempEl = document.createElement('h5');
+          var humEl = document.createElement('h6');
+          var windEl = document.createElement('h6');
           forecastCard.classList.add('border', 'p-5');
-          tempEl.textContent = "Temp: " + currentTemp;
-          humEl.textContent = "Humidity: " + currentHumidity
+          forecastCard.setAttribute("class", "backGroundBlue")
+          forecastImgEl.setAttribute("src", "https://openweathermap.org/img/wn/" + currentWeatherIcon + ".png");
+          dateEl.textContent = moment(currentWeatherDate).format("MMM Do YY");
+          tempEl.textContent = "Temp: " + currentTemp + " °F";
+          humEl.textContent = "Humidity: " + currentHumidity + "%";
           windEl.textContent = "Wind Speed: " + currentWindSpeed
-          forecastCard.append(tempEl, humEl, windEl);
-
-
+          forecastCard.append(forecastImgEl);
+          forecastCard.append(dateEl, tempEl, humEl, windEl);
           fiveDayForecastFirstEl.append(forecastCard);
-          // fiveDayForecastSecondEl.append('<li>' + "Humidity: " + currentHumidity + '</li>');
-          // fiveDayForecastEl.append('<li>' + "Windspeed: " + currentWindSpeed + '</li>');
 
         }
 
-
-
       }
-
-
-
-
 
     });
 
-
-
-
-
 };
+
+
+for (var i = 0; i < localStorage.length; i++) {
+  var listOfCities = localStorage.getItem(localStorage.key(i));
+  var localStorageButton = $("<button>");
+  localStorageButton.attr("class", "btn btn-outline-secondary d-grid gap-2 col-6 mx-auto w-100");
+  localStorageButton.attr("type", "text");
+  localStorageButton.attr("value", listOfCities);
+  localStorageButton.text(localStorage.getItem(localStorage.key(i)));
+  $('#stored-City').append(localStorageButton);
+}
+
+
 
 
 addEventListener('submit', handleFormSubmit);
