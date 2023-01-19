@@ -12,7 +12,8 @@ Hope you enjoy it!
 
 
 Usage
-PICTURE OF APP
+
+![Screenshot (9)](https://user-images.githubusercontent.com/118211489/213343948-55c17b99-29a0-4063-bf20-e4bb5bf70529.png)
 
 
 
