@@ -1,4 +1,4 @@
-# weatherapp
+# Weatherapp
 
 UTA Bootcamp Challenge6
 Weather Dashboard
