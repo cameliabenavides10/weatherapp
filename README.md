@@ -2,22 +2,22 @@
 
 UTA Bootcamp Challenge6
 Weather Dashboard
-Description
+# Description
 A weather dashboard that will run in the browser and feature dynamically updated HTML and CSS.
 This app will use the 5 Day Weather Forecast API in order to return accurate weather information. 
 
-Installation
+# Installation
 To use please type in a city on the search bar, then press submit. You will get current forecast, as well as a five day forecast for the future. 
 Hope you enjoy it!
 
 
-Usage
+# Usage
 
 ![Screenshot (9)](https://user-images.githubusercontent.com/118211489/213343948-55c17b99-29a0-4063-bf20-e4bb5bf70529.png)
 
 
 
-Acceptance Criteria
+# Acceptance Criteria
 GIVEN a weather dashboard with form inputs
 WHEN I search for a city
 THEN I am presented with current and future conditions for that city and that city is added to the search history
@@ -28,12 +28,13 @@ THEN I am presented with a 5-day forecast that displays the date, an icon repres
 WHEN I click on a city in the search history
 THEN I am again presented with current and future conditions for that city
 
-Credits
+# Credits
 List your collaborators, if any, with links to their GitHub profiles.
+Collaborator that helped a lot: https://github.com/ChrisZavala
 
 
-License
+# License
 Please refer to the LICENSE in the repo.
 
-Tests
+# Tests
 N/A
