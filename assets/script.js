@@ -89,15 +89,32 @@ currentDayWeatherEl.empty();
 };
 
 
+// Function to handle the click event on local storage buttons
+function handleLocalStorageButtonClick(event) {
+  event.preventDefault();
+  var citySearch = event.target.value;
+  $('input[name="city-input"]').val(citySearch); // Set the input field value
+  handleFormSubmit(event); // Call handleFormSubmit function
+}
+
+
 for (var i = 0; i < localStorage.length; i++) {
   var listOfCities = localStorage.getItem(localStorage.key(i));
   var localStorageButton = $("<button>");
   localStorageButton.attr("class", "btn btn-outline-secondary d-grid gap-2 col-6 mx-auto w-100");
-  localStorageButton.attr("type", "text");
+  localStorageButton.attr("type", "submit");
   localStorageButton.attr("value", listOfCities);
   localStorageButton.text(localStorage.getItem(localStorage.key(i)));
+
+  // Add event listener to the local storage button
+  localStorageButton.on('click', handleLocalStorageButtonClick);
+
   $('#stored-City').append(localStorageButton);
-  console.log(document.getElementById("#stored-City"));
+  console.log(document.getElementById
+    ("#stored-City"));
+    console.log(listOfCities);  
+    console.log(localStorage);
+  
 }
 
 
