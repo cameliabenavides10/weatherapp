@@ -8,6 +8,9 @@ var pastSearchedCityEl = $('#stored-City');
 
 function handleFormSubmit(event) {
 
+   fiveDayForecastFirstEl.empty();
+currentDayWeatherEl.empty();
+
   if ($('input[name="city-input"]').val() ===""){
     alert("please enter a valid city.");
 }
